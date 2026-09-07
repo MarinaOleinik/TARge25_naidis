@@ -5,10 +5,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:TARge25_naidis"
     Title="TARge25_naidis">
-
+    <Shell.TitleView>
+        <Label
+        Text="Mobiilirakendused" 
+        FontFamily="Luffio"
+        FontSize="Title"
+        TextColor="Black"
+        
+        />
+    </Shell.TitleView>
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Avaleht"
+        ContentTemplate="{DataTemplate local:StartPage}"
+        Route="StartPage" />
 
 </Shell>
