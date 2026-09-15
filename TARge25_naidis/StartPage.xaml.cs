@@ -3,8 +3,20 @@ namespace TARge25_naidis;
 public partial class StartPage : ContentPage
 {
 	VerticalStackLayout vst;
-	public List<ContentPage> Lehed=new List<ContentPage>() { new TextPage(), new FigurePage(), new PickerPage()};
-	public List<string> Lehenimed=new List<string>() { "Tekst", "Kujundus","Valik" };
+	public List<ContentPage> Lehed=new List<ContentPage>() 
+	{ 
+		new TextPage(), 
+		new FigurePage(), 
+		new PickerPage(),
+		new StepperSliderPage()
+	};
+	public List<string> Lehenimed=new List<string>() 
+	{ 
+		"Tekst", 
+		"Kujundus",
+		"Valik", 
+		"Liugur/Sammuti" 
+	};
 	public StartPage()
 	{
 		vst = new VerticalStackLayout { Padding=20, Spacing=20 };
