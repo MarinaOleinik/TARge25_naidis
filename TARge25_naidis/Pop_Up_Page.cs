@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace TARge25_naidis;
 
 public class Pop_Up_Page : ContentPage
@@ -31,6 +33,14 @@ public class Pop_Up_Page : ContentPage
             HorizontalOptions = LayoutOptions.Center
         };
         alertListButton.Clicked += AlertListButton_Clicked;
+        //3.1.  Nupp küsimisega
+        Button alertQuestButton= new Button
+        {
+            Text = "Küsimus",
+            VerticalOptions = LayoutOptions.Start,
+            HorizontalOptions = LayoutOptions.Center
+        };
+        alertQuestButton.Clicked += AlertQuestButton_Clicked;
 
         // 4. Paigutame kõik nupud ekraanile üksteise alla
 
@@ -38,9 +48,16 @@ public class Pop_Up_Page : ContentPage
         {
             Spacing = 20, // Jätab nuppude vahele 20 pikslit vaba ruumi
             Padding = new Thickness(0, 50, 0, 0), // Lükkab sisu veidi ülevalt alla
-            Children = { alertButton, alertYesNoButton, alertListButton }
+            Children = { alertButton, alertYesNoButton, alertListButton, alertQuestButton }
         };
     }
+
+    private async void AlertQuestButton_Clicked(object? sender, EventArgs e)
+    {
+        string result1 = await DisplayPromptAsync("Küsimus", "Mis on teie nimi?", "OK", "Loobu", "Sisesta nimi", 20, Keyboard.Default, "Siia tuleb nimi");
+        string result2 = await DisplayPromptAsync("Küsimus", "Mis on teie vanus?", "OK", "Loobu", "Sisesta vanus", 3, Keyboard.Numeric, "Siia tuleb vanus");
+    }
+
     // --- SÜNDMUSTE FUNKTSIOONID (EVENTS) ---
 
     // 1. Nupp: Lihtne teade
