@@ -80,7 +80,7 @@ public class Pop_Up_Page : ContentPage
     private async void AlertListButton_Clicked(object? sender, EventArgs e)
     {
         // Kuvab menüü ja salvestab kasutaja valitud teksti muutujasse 'action'
-        string action = await DisplayActionSheetAsync("Mida teha?", "Loobu", "Kustutada", "Tantsida", "Laulda", "Joonestada");
+        string action = await DisplayActionSheetAsync("Mida teha?", "Loobu", "Vali tegevus", "Tantsida", "Laulda", "Joonestada");
 
         // Kontrollime, et kasutaja ei vajutanud lihtsalt kõrvale ega valinud "Loobu"
         if (action != null && action != "Loobu")

@@ -9,7 +9,8 @@ public partial class StartPage : ContentPage
 		new FigurePage(), 
 		new PickerPage(),
 		new StepperSliderPage(),
-		new Pop_Up_Page()
+		new Pop_Up_Page(),
+        new GridPage()
     };
 	public List<string> Lehenimed=new List<string>() 
 	{ 
@@ -17,7 +18,8 @@ public partial class StartPage : ContentPage
 		"Kujundus",
 		"Valik", 
 		"Liugur/Sammuti",
-        "Sõnumid"
+        "Sõnumid",
+        "Grid"
     };
 	public StartPage()
 	{
@@ -70,9 +72,12 @@ public partial class StartPage : ContentPage
 
 	}
     //Lisame koodi, mis kontrollib, kas see on esimene kord, kui kasutaja avab rakenduse.
-	//Kui see on esimene kord, kuvatakse dialoogiaken, mis tervitab kasutajat ja pakub juhendit.
-	//Kui kasutaja valib "Jah", kuvatakse lühike juhend.
-	//Seejärel salvestatakse eelistus, et rakendus on juba käivitatud.
+    //Kui see on esimene kord, kuvatakse dialoogiaken, mis tervitab kasutajat ja pakub juhendit.
+    //Kui kasutaja valib "Jah", kuvatakse lühike juhend.
+    //Seejärel salvestatakse eelistus, et rakendus on juba käivitatud.
+    
+    //OnAppearing() on sündmus/meetod, mis käivitub automaatselt lehe ekraanile ilmumisel
+    //OnDisappearing() — funktsioon, mis käivitub lehe kadumisel / sulgumisel.
     protected override async void OnAppearing()
     {
         base.OnAppearing();
@@ -88,7 +93,6 @@ public partial class StartPage : ContentPage
                                              "Tundub, et avasid selle rakenduse esimest korda. Kas soovid näha lühikest juhendit?",
                                              "Jah, palun",
                                              "Ei, saan ise hakkama");
-
             if (vastus)
             {
                 await DisplayAlertAsync("Juhend",
