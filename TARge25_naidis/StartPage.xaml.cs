@@ -10,7 +10,8 @@ public partial class StartPage : ContentPage
 		new PickerPage(),
 		new StepperSliderPage(),
 		new Pop_Up_Page(),
-        new GridPage()
+        new GridPage(),
+        new ListViewPage()
     };
 	public List<string> Lehenimed=new List<string>() 
 	{ 
@@ -19,7 +20,8 @@ public partial class StartPage : ContentPage
 		"Valik", 
 		"Liugur/Sammuti",
         "Sõnumid",
-        "Grid"
+        "Grid",
+        "ListView"
     };
 	public StartPage()
 	{
