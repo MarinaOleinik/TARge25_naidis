@@ -236,11 +236,11 @@ namespace TARge25_naidis
          * <uses-permission android:name="android.permission.CAMERA" />
 
 
-	<queries>
-		<intent>
-			<action android:name="android.media.action.IMAGE_CAPTURE" />
-		</intent>
-	</queries>*/
+	    <queries>
+		    <intent>
+			    <action android:name="android.media.action.IMAGE_CAPTURE" />
+		    </intent>
+	    </queries>*/
         private async void KaameraNupp_Clicked(object? sender, EventArgs e)
         {
             try
@@ -294,32 +294,32 @@ namespace TARge25_naidis
                 if (foto == null)
                     return; // kasutaja sulges galerii midagi valimata
 
-                // 2. Kirjeldus dialoogiaknast
-                string kirjeldus = await DisplayPromptAsync(
-                    "Pildi kirjeldus",
-                    "Sisesta pildi pealkiri:",
-                    accept: "Lisa",
-                    cancel: "Tühista",
-                    placeholder: "nt Mererand",
-                    maxLength: 40);
+                //// 2. Kirjeldus dialoogiaknast
+                //string kirjeldus = await DisplayPromptAsync(
+                //    "Pildi kirjeldus",
+                //    "Sisesta pildi pealkiri:",
+                //    accept: "Lisa",
+                //    cancel: "Tühista",
+                //    placeholder: "nt Mererand",
+                //    maxLength: 40);
 
-                if (kirjeldus == null)
-                    return; // vajutati "Tühista"
+                //if (kirjeldus == null)
+                //    return; // vajutati "Tühista"
 
-                if (string.IsNullOrWhiteSpace(kirjeldus))
-                    kirjeldus = "Nimetu pilt";
+                //if (string.IsNullOrWhiteSpace(kirjeldus))
+                //    kirjeldus = "Nimetu pilt";
 
-                // 3. Kopeerime pildi rakenduse enda kausta,
-                //    sest galerii ajutine fail võib hiljem kaduda
-                string uusTee = Path.Combine(
-                    FileSystem.Current.AppDataDirectory,
-                    $"{Guid.NewGuid()}{Path.GetExtension(foto.FileName)}");
+                //// 3. Kopeerime pildi rakenduse enda kausta,
+                ////    sest galerii ajutine fail võib hiljem kaduda
+                //string uusTee = Path.Combine(
+                //    FileSystem.Current.AppDataDirectory,
+                //    $"{Guid.NewGuid()}{Path.GetExtension(foto.FileName)}");
 
-                using (Stream sisse = await foto.OpenReadAsync())
-                using (FileStream valja = File.OpenWrite(uusTee))
-                {
-                    await sisse.CopyToAsync(valja);
-                }
+                //using (Stream sisse = await foto.OpenReadAsync())
+                //using (FileStream valja = File.OpenWrite(uusTee))
+                //{
+                //    await sisse.CopyToAsync(valja);
+                //}
 
                 //// 4. Lisame karusselli ja kerime uuele pildile
                 //items.Add(new CarouselItem
