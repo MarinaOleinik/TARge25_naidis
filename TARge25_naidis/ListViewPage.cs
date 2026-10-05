@@ -11,7 +11,25 @@ namespace TARge25_naidis
         public string Nimetus { get; set; }
         public string Tootja { get; set; }
         public int Hind { get; set; }
-        public string Pilt { get; set; }
+        //public string Pilt { get; set; }
+        // Privaatne muutuja, mis hoiab tegelikku väärtust
+        private string _pilt;
+
+        public string Pilt
+        {
+            // Kui _pilt on tühi või null, anname vaikimisi pildi "phone.jpg"
+            get
+            {
+                if (string.IsNullOrWhiteSpace(_pilt))
+                    return "phone.jpg";
+                else
+                    return _pilt;
+            }
+            set
+            {
+                _pilt = value;
+            }
+        }
     }
     //2.Põhileht, kus on ListView
     public class ListViewPage: ContentPage
@@ -21,7 +39,7 @@ namespace TARge25_naidis
         Entry entryNimetus, entryTootja, entryHind, entryPilt;
         
         // Muutujad pildi valimise jaoks
-        string valitudPildiTee = "";
+        string valitudPildiTee = "phone.jpg";
         Label lblValitudPilt;
 
         public ListViewPage()
@@ -50,7 +68,7 @@ namespace TARge25_naidis
                     Label lblHind = new Label { TextColor = Colors.DarkBlue, FontAttributes = FontAttributes.Bold, VerticalOptions = LayoutOptions.Center }; // Xamarin: Color.DarkBlue
                     lblHind.SetBinding(Label.TextProperty, new Binding("Hind", stringFormat: "{0} €")); // Lisame € märgi
                     
-                    imgPilt.SetBinding(Image.SourceProperty, "Pilt");
+                    
 
                     // 3. REA PAIGUTUS (Kõrvuti)
                     var rowLayout = new StackLayout
@@ -153,7 +171,8 @@ namespace TARge25_naidis
                     Nimetus = entryNimetus.Text,
                     Tootja = entryTootja.Text,
                     Hind = hind,
-                    Pilt = pildiNimi // Kasutame leitud/valitud pildi nime
+                    //Pilt = pildiNimi // Kasutame leitud/valitud pildi nime
+                    Pilt = valitudPildiTee // Kui see on tühi, paneb klass ise automaatselt "phone.jpg"
                 });
 
                 // Puhastame tekstikastid uue sisestuse jaoks

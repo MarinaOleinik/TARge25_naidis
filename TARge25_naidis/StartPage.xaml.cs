@@ -11,7 +11,8 @@ public partial class StartPage : ContentPage
 		new StepperSliderPage(),
 		new Pop_Up_Page(),
         new GridPage(),
-        new ListViewPage()
+        new ListViewPage(),
+        new KarussellPage()
     };
 	public List<string> Lehenimed=new List<string>() 
 	{ 
@@ -21,7 +22,8 @@ public partial class StartPage : ContentPage
 		"Liugur/Sammuti",
         "Sõnumid",
         "Grid",
-        "ListView"
+        "ListView",
+        "Karussell"
     };
 	public StartPage()
 	{
